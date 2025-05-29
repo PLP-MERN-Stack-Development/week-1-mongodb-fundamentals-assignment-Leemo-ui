@@ -3,8 +3,9 @@
 // Import MongoDB client
 const { MongoClient } = require('mongodb');
 
-// Connection URI (replace with your MongoDB connection string if using Atlas)
-const uri = 'mongodb://localhost:27017';
+// Connection URI with explicit localhost IP
+const uri = 'mongodb://127.0.0.1:27017';
+const client = new MongoClient(uri);
 
 // Database and collection names
 const dbName = 'plp_bookstore';
@@ -135,13 +136,11 @@ const books = [
 ];
 
 // Function to insert books into MongoDB
-async function insertBooks() {
-  const client = new MongoClient(uri);
-
+async function run() {
   try {
     // Connect to the MongoDB server
     await client.connect();
-    console.log('Connected to MongoDB server');
+    console.log('Connected successfully to the database');
 
     // Get database and collection
     const db = client.db(dbName);
@@ -166,8 +165,8 @@ async function insertBooks() {
       console.log(`${index + 1}. "${book.title}" by ${book.author} (${book.published_year})`);
     });
 
-  } catch (err) {
-    console.error('Error occurred:', err);
+  } catch (error) {
+    console.error('Error occurred:', error);
   } finally {
     // Close the connection
     await client.close();
@@ -176,7 +175,7 @@ async function insertBooks() {
 }
 
 // Run the function
-insertBooks().catch(console.error);
+run().catch(console.dir);
 
 /*
  * Example MongoDB queries you can try after running this script:
@@ -195,4 +194,4 @@ insertBooks().catch(console.error);
  *
  * 5. Find in-stock books:
  *    db.books.find({ in_stock: true })
- */ 
+ */

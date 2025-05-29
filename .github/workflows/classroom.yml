@@ -13,6 +13,13 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      - name: Set up MongoDB
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y mongodb
+          sudo systemctl start mongodb
+          sudo systemctl status mongodb
+
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
