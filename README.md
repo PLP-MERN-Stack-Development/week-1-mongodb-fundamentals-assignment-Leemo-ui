@@ -1,47 +1,47 @@
 [![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-2e0aaae1b6195c2367325f4f02e2d04e9abb55f0b24a779b69b11b9e10269abc.svg)](https://classroom.github.com/online_ide?assignment_repo_id=19664781&assignment_repo_type=AssignmentRepo)
-# MongoDB Fundamentals Assignment
+# MongoDB Bookstore Database Assignment
 
-This assignment focuses on learning MongoDB fundamentals including setup, CRUD operations, advanced queries, aggregation pipelines, and indexing.
+This project implements a bookstore database using MongoDB with various queries and operations.
 
-## Assignment Overview
+## Setup Instructions
 
-You will:
-1. Set up a MongoDB database
-2. Perform basic CRUD operations
-3. Write advanced queries with filtering, projection, and sorting
-4. Create aggregation pipelines for data analysis
-5. Implement indexing for performance optimization
+1. Install MongoDB on your system if not already installed
+2. Start MongoDB service:
+   ```bash
+   sudo systemctl start mongod
+   ```
+3. Open MongoDB shell:
+   ```bash
+   mongosh
+   ```
+4. Run the queries from `queries.js`:
+   ```bash
+   load("queries.js")
+   ```
 
-## Getting Started
+## Database Structure
 
-1. Accept the GitHub Classroom assignment invitation
-2. Clone your personal repository that was created by GitHub Classroom
-3. Install MongoDB locally or set up a MongoDB Atlas account
-4. Run the provided `insert_books.js` script to populate your database
-5. Complete the tasks in the assignment document
+The database `plp_bookstore` contains a collection `books` with the following schema:
+- title (string)
+- author (string)
+- genre (string)
+- price (number)
+- published_year (number)
+- in_stock (boolean)
 
-## Files Included
+## Features Implemented
 
-- `Week1-Assignment.md`: Detailed assignment instructions
-- `insert_books.js`: Script to populate your MongoDB database with sample book data
+- Basic CRUD operations
+- Advanced queries with filtering and sorting
+- Aggregation pipelines for data analysis
+- Database indexing for performance optimization
 
-## Requirements
+## Query Examples
 
-- Node.js (v18 or higher)
-- MongoDB (local installation or Atlas account)
-- MongoDB Shell (mongosh) or MongoDB Compass
-
-## Submission
-
-Your work will be automatically submitted when you push to your GitHub Classroom repository. Make sure to:
-
-1. Complete all tasks in the assignment
-2. Add your `queries.js` file with all required MongoDB queries
-3. Include a screenshot of your MongoDB database
-4. Update the README.md with your specific setup instructions
-
-## Resources
-
-- [MongoDB Documentation](https://docs.mongodb.com/)
-- [MongoDB University](https://university.mongodb.com/)
-- [MongoDB Node.js Driver](https://mongodb.github.io/node-mongodb-native/) 
+See `queries.js` for detailed examples of:
+- Finding books by genre, year, and author
+- Updating and deleting books
+- Complex queries with multiple conditions
+- Sorting and pagination
+- Aggregation operations
+- Index creation and usage
