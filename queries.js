@@ -48,6 +48,19 @@ db.books.find().limit(5);
 // Pagination - Page 2 (skip first 5, show next 5)
 db.books.find().skip(5).limit(5);
 
+// Task 3: Advanced Queries
+// Find books that cost more than $20 and are in stock
+db.books.find({
+  price: { $gt: 20 },
+  in_stock: true
+});
+
+// Find technology books published after 2000
+db.books.find({
+  genre: "Technology",
+  published_year: { $gt: 2000 }
+});
+
 // Task 4: Aggregation Pipeline
 
 // Calculate average price by genre
@@ -96,6 +109,20 @@ db.books.aggregate([
   },
   {
     $sort: { _id: 1 }
+  }
+]);
+
+// Task 4: Aggregation Pipeline
+// Calculate total value of books in stock
+db.books.aggregate([
+  {
+    $match: { in_stock: true }
+  },
+  {
+    $group: {
+      _id: null,
+      totalValue: { $sum: "$price" }
+    }
   }
 ]);
 

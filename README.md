@@ -14,10 +14,18 @@ This project implements a bookstore database using MongoDB with various queries 
    ```bash
    mongosh
    ```
-4. Run the queries from `queries.js`:
+4. Create and load sample data:
+   ```bash
+   load("sample_data.js")
+   ```
+5. Run the queries from `queries.js`:
    ```bash
    load("queries.js")
    ```
+
+## Prerequisites
+- MongoDB 5.0 or higher
+- mongosh (MongoDB Shell)
 
 ## Database Structure
 
