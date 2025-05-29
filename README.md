@@ -3,6 +3,14 @@
 
 This project implements a bookstore database using MongoDB with various queries and operations.
 
+## Try it Online
+
+- [Open in MongoDB Playground](https://mongoplayground.net/) - A lightweight online environment for testing MongoDB queries.
+- [Try in MongoDB Atlas](https://www.mongodb.com/cloud/atlas/register) - Create and manage your own MongoDB cluster in the cloud.
+- [Practice on MongoDB University](https://university.mongodb.com/) - Learn MongoDB concepts and practice queries with guided tutorials.
+
+These online environments allow you to practice MongoDB queries without local installation.
+
 ## Setup Instructions
 
 1. Install MongoDB on your system if not already installed
@@ -26,6 +34,41 @@ This project implements a bookstore database using MongoDB with various queries 
 ## Prerequisites
 - MongoDB 5.0 or higher
 - mongosh (MongoDB Shell)
+- 2GB+ free disk space
+
+## Detailed Setup
+
+### Installing MongoDB on Ubuntu
+```bash
+sudo apt update
+sudo apt install -y mongodb-org
+```
+
+### Installing MongoDB on MacOS
+```bash
+brew tap mongodb/brew
+brew install mongodb-community
+```
+
+### Verifying Installation
+```bash
+mongod --version
+mongosh --version
+```
+
+## Troubleshooting
+
+1. If MongoDB service fails to start:
+   ```bash
+   sudo systemctl status mongod
+   sudo systemctl restart mongod
+   ```
+
+2. If permission errors occur:
+   ```bash
+   sudo chown -R mongodb:mongodb /var/lib/mongodb
+   sudo chown mongodb:mongodb /tmp/mongodb-27017.sock
+   ```
 
 ## Database Structure
 
