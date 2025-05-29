@@ -1,8 +1,50 @@
 // create database and collection
-// NOTE: The 'use' statement is only valid in the MongoDB shell, not in JavaScript files.
-// Make sure to select the 'plp_bookstore' database in your MongoDB shell before running these commands.
+
 db.createCollection("books")
 //Task 2: Basic CRUD Operations
+// Insert sample books into the collection
+db.books.insertMany([
+    {
+        title: "The Great Gatsby",
+        author: "F. Scott Fitzgerald",
+        genre: "Fiction",
+        price: 9.99,
+        published_year: 1925,
+        in_stock: true
+    },
+    {
+        title: "MongoDB: The Definitive Guide",
+        author: "Shannon Bradshaw",
+        genre: "Technology",
+        price: 49.99,
+        published_year: 2019,
+        in_stock: true
+    },
+    {
+        title: "To Kill a Mockingbird",
+        author: "Harper Lee",
+        genre: "Fiction",
+        price: 12.99,
+        published_year: 1960,
+        in_stock: true
+    },
+    {
+        title: "JavaScript: The Good Parts",
+        author: "Douglas Crockford",
+        genre: "Technology",
+        price: 29.99,
+        published_year: 2008,
+        in_stock: false
+    },
+    {
+        title: "1984",
+        author: "George Orwell",
+        genre: "Fiction",
+        price: 11.99,
+        published_year: 1949,
+        in_stock: true
+    }
+]);
 
 // Find all books in a specific genre
 db.books.find({ genre: "Fiction" });

@@ -70,6 +70,40 @@ mongosh --version
    sudo chown mongodb:mongodb /tmp/mongodb-27017.sock
    ```
 
+## Running Scripts
+
+### Database Scripts
+1. Initialize the database:
+   ```bash
+   mongosh init_db.js
+   ```
+
+2. Load sample data:
+   ```bash
+   mongosh load_data.js
+   ```
+
+3. Run example queries:
+   ```bash
+   mongosh queries.js
+   ```
+
+### Utility Scripts
+- To backup the database:
+  ```bash
+  ./scripts/backup.sh
+  ```
+
+- To restore from backup:
+  ```bash
+  ./scripts/restore.sh <backup-file>
+  ```
+
+- To run all tests:
+  ```bash
+  ./scripts/run_tests.sh
+  ```
+
 ## Database Structure
 
 The database `plp_bookstore` contains a collection `books` with the following schema:
