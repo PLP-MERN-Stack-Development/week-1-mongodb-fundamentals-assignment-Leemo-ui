@@ -16,9 +16,25 @@ tests:
     timeout: 10
     points: 10
 
+  - name: Set up MongoDB
+    run: |
+      wget -qO - https://www.mongodb.org/static/pgp/server-6.0.asc | sudo apt-key add -
+      echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/6.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-6.0.list
+      sudo apt-get update
+      sudo apt-get install -y mongodb-org
+      sudo systemctl start mongod
+      sudo systemctl status mongod
+    input: ""
+    output: "active"
+    comparison: included
+    timeout: 60
+    points: 10
+
   - name: Run insert_books.js
     setup: npm install mongodb
-    run: node insert_books.js
+    run: |
+      sudo systemctl status mongod | grep "active"  # Verify MongoDB is running
+      node insert_books.js
     input: ""
     output: "books were successfully inserted into the database"
     comparison: included
@@ -59,4 +75,4 @@ tests:
     output: ""
     comparison: included
     timeout: 10
-    points: 15 
+    points: 15
